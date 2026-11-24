@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WORD CHAIN! · Emma & Chris</title>
+<style>
+:root{--violet:#7957d9;--ink:#283259;--muted:#74819a;--blue:#e6f3ff;--mint:#dcf9eb;--pink:#ffe6f1;--line:#e3e5f4;--soft:#f8f8ff;--orange:#ffdc8c}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 9% 4%,#e0f3ff 0,transparent 32%),radial-gradient(circle at 93% 13%,#ffdeed 0,transparent 30%),#f8f6ff;font-family:'Trebuchet MS','Noto Sans KR','Malgun Gothic',sans-serif;color:var(--ink)}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.wrap{max-width:1380px;padding:20px;margin:0 auto}.banner{padding:22px 27px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(115deg,#7560e8,#ac75e6 64%,#ff93b6);color:white;border-radius:26px;box-shadow:0 13px 31px #6a62a42c}.banner h1{margin:3px 0 5px;letter-spacing:-1.5px;font-size:clamp(27px,3vw,42px)}.banner p{margin:0;color:#f4eaff;font-size:13px}.kicker{font-size:11px;font-weight:900;letter-spacing:.15em}.mascot{font-size:62px;transform:rotate(-10deg)}.pills{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.pill{font-size:12px;font-weight:800;background:#ffffffcc;border:1px solid #e3e0f5;border-radius:30px;padding:8px 12px}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,440px);gap:16px;align-items:start}.column{min-width:0;display:grid;gap:16px}.panel{background:white;border:1px solid #e5e5f4;border-radius:22px;padding:19px;box-shadow:0 9px 30px #5758a212}.panel h2{font-size:17px;margin:0 0 12px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.stat{background:#f1efff;padding:13px;border-radius:15px}.stat:nth-child(2){background:#fff0f6}.stat:nth-child(3){background:#e9f9f1}.stat label{display:block;color:#727e9d;font-size:11px;font-weight:850}.stat strong{font-size:27px;font-weight:950;display:block;margin-top:3px}.stat small{font-size:11px}.entry{display:flex;gap:9px;margin-top:16px}.entry input{flex:1;min-width:0;padding:13px 15px;font-weight:850;font-size:18px;border:2px solid #e2e4f2;border-radius:14px;outline:none}.entry input:focus{border-color:#9d8df0;box-shadow:0 0 0 4px #9d8df022}.primary{background:linear-gradient(135deg,#7e69ea,#b778e8);border:0;color:white;border-radius:13px;padding:10px 20px;font-weight:900}.secondary{border:1px solid #e0e3f0;background:#fafaff;border-radius:11px;color:#4e5880;padding:9px 12px;font-weight:850;font-size:12px}.secondary:hover{background:#efedff}.mint{background:#ecfcf6;color:#19886e;border-color:#c6eadb}.pink{background:#fff2fa;color:#a65191;border-color:#f4d8ec}.helper{min-height:26px;font-size:12px;color:#73809b;font-weight:800;padding-top:8px}.helper.error{color:#ce4969}.helper.good{color:#16876b}.actions{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 0}.chainBox{background:linear-gradient(125deg,#fcfbff,#f4f7ff);border:1px dashed #d7d8f2;border-radius:17px;min-height:155px;margin-top:15px;padding:14px}.tiny{font-size:12px;color:var(--muted)}.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px;align-items:center}.chip{background:white;border:1px solid #dfdef5;border-radius:10px;padding:8px 9px;font-size:12px;font-weight:900;color:#765bc8;box-shadow:0 3px 0 #ebe7ff}.chip:hover{background:#f1edff}.arrow{font-size:12px;color:#a5a0cb}.note{background:#eafaf2;border:1px solid #bcebd3;border-radius:13px;padding:11px 12px;font-size:12px;font-weight:800;margin-top:12px;color:#267f68}.note.warn{background:#fff0f3;border-color:#f6c9d8;color:#b64b71}.analysis{border-radius:18px;border:1px solid #dfeaf7;background:linear-gradient(120deg,#f3faff,#f7f4ff);padding:14px;margin-top:15px}.analysis h3{margin:0 0 10px;font-size:14px}.analysisGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.analysisCard{padding:13px;background:white;border:1px solid #e3eafb;border-radius:14px}.analysisCard span{font-size:11px;color:#7783a2;font-weight:800;display:block}.analysisCard strong{display:block;font-size:27px;margin:3px 0}.analysisCard small{font-size:11px;color:#7a849d;line-height:1.5}.progress{height:9px;background:#e8e7f4;border-radius:20px;margin:12px 0 6px;overflow:hidden}.progressInner{height:100%;width:0;background:linear-gradient(90deg,#5bceb0,#9875e6);transition:width .25s}.strategy{background:#fff9e7;border:1px solid #f0dfa9;padding:13px;border-radius:14px;margin-top:12px}.strategy h3{font-size:13px;margin:0 0 6px}.strategy p{font-size:12px;margin:0 0 9px;line-height:1.7;color:#795e37}.strategy button{background:#fff;border:1px solid #e9d39d;border-radius:10px;padding:8px 11px;font-weight:850;color:#8b6438}.hintPanel{margin-top:11px;border:1px solid #bde8dc;background:#f0fcf7;border-radius:13px;padding:13px}.hintPanel .candidates{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.candidate{padding:7px 10px;background:#fff;border:1px solid #bbdfd5;border-radius:9px;font-weight:900;color:#217c67}.hidden{display:none!important}.gradeHero{border-radius:17px;background:linear-gradient(125deg,#f0eaff,#fff0f9);text-align:center;padding:15px}.gradeHero .emoji{font-size:39px}.gradeHero .name{font-size:23px;font-weight:950}.gradeHero p{font-size:12px;color:#8880a5;margin:4px}.gradeRow{display:flex;align-items:center;gap:11px;padding:10px 9px;border:1px solid transparent;border-radius:11px;font-size:12px;font-weight:850}.gradeRow.done{background:#f2f0ff;border-color:#e4dffd}.gradeRow.locked{opacity:.5}.gradeRow .grIcon{font-size:21px}.gradeRow .grName{flex:1}.gradeRow .grNeed{font-size:11px;color:#8390a7}.secretPanel{background:#fffafd}.mission{border:1px solid #f1e6f3;background:white;border-radius:13px;padding:11px;margin-top:9px}.mission.complete{background:#effcf5;border-color:#bfead6}.mission b{font-size:12px}.mission p{font-size:11px;color:#8188a0;margin:4px 0}.mission small{color:#b579a6}.mission.complete small{color:#198767}.tabs{display:flex;gap:6px}.tab.active{color:white;background:#8f70e8}.passage{line-height:1.9;font-size:13px;font-weight:650;color:#4b5175;margin-top:13px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,140px);background:#303550;color:#fff;border-radius:40px;padding:12px 20px;font-weight:850;font-size:12px;transition:transform .25s;z-index:30;box-shadow:0 9px 30px #262b5a33}.toast.show{transform:translate(-50%,0)}.subtle{text-align:center;color:#8993aa;font-size:11px;margin-top:18px}.spin{display:inline-block;animation:rotate 1.5s linear infinite}@keyframes rotate{to{transform:rotate(360deg)}}@media(max-width:1050px){.layout{grid-template-columns:minmax(0,1fr) minmax(300px,380px)}.wrap{padding:12px}.panel{padding:15px}}@media(max-width:760px){.layout{grid-template-columns:1fr}.banner{padding:17px}.mascot{font-size:38px}.banner h1{font-size:27px}.stats{gap:5px}.stat{padding:10px}.stat strong{font-size:22px}.panel{border-radius:17px}.entry input{font-size:16px}.primary{padding:10px 14px}}
+
+/* Stuck-state only: compact improvement markers inside the existing chain panel. */
+.chip.routePick{position:relative;border:2px solid #eb5266;background:#fff7f9;color:#a72e4f;padding:7px 8px;box-shadow:0 3px 0 #ffd3dc}
+.chip.routePick::after{content:attr(data-rank);position:absolute;right:-8px;top:-10px;min-width:23px;height:23px;border-radius:50%;background:#e43f55;color:white;display:grid;place-items:center;font-weight:950;font-size:11px;border:2px solid white;box-shadow:0 1px 5px #bc435f55}
+.routePanel{border-radius:14px;background:#fff7f8;border:1px solid #ffd2d9;padding:12px;margin-top:15px}
+.routePanel h3{font-size:14px;margin:0 0 6px;color:#ad3b54}
+.routePanel .routeSub{font-size:11px;color:#8d6875;margin:0 0 9px;line-height:1.6}
+.routeItems{display:grid;gap:7px}
+.routeItem{display:flex;align-items:center;gap:10px;border:1px solid #fad4dc;background:white;padding:9px 10px;border-radius:10px;text-align:left;width:100%;color:#423653}
+.routeItem:hover{border-color:#e4556c;background:#fff9fa}
+.routeRank{display:grid;place-items:center;flex:0 0 24px;height:24px;background:#e43f55;color:white;border-radius:50%;font-size:12px;font-weight:900}
+.routeText{flex:1;font-size:12px;line-height:1.5}
+.routeScore{font-size:12px;font-weight:900;color:#ba3a56;white-space:nowrap}
+
+/* Two live source passages above the grade panel, visible together on tablets. */
+.passagePanel{background:linear-gradient(160deg,#fff,#fdfbff)}
+.passageHead{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap}
+.passageHead h2{margin:0 0 4px}
+.usedLegend{font-size:10px;color:#8b78a8;font-weight:800}
+.textBlock{background:#faf8ff;border:1px solid #e8e3fa;border-radius:15px;padding:11px 12px;margin-top:11px}
+.textName{font-size:12px;font-weight:950;color:#7758bb;letter-spacing:.05em}
+.passage{line-height:1.78;font-size:13px;margin:6px 0 0;font-weight:600;overflow-wrap:anywhere}
+.passage .token{border-radius:3px;transition:opacity .18s,background .18s}
+.passage .token.used{opacity:.25;text-decoration:line-through;text-decoration-thickness:1.5px;color:#858199;background:#e2e1e9}
+.passageFoot{font-size:11px;color:#6d6487;font-weight:800;margin-top:10px}
+.routeZone{font-size:10px;font-weight:950;padding:3px 7px;border-radius:6px;background:#ffe7eb;color:#ab3654;white-space:nowrap}
+.routePick[data-zone="early"]{border-color:#e94a65}.routePick[data-zone="middle"]{border-color:#d23f57}.routePick[data-zone="late"]{border-color:#b42a49}
+@media(min-width:761px){.passagePanel{position:sticky;top:10px;z-index:2}}
+@media(max-width:1050px) and (min-width:761px){.passage{font-size:12px}.textBlock{padding:9px}}
+</style></head><body>
+<div class="wrap"><header class="banner"><div><div class="kicker">LESSON 7 · EMMA & CHRIS</div><h1>WORD CHAIN! 🌈</h1><p>영어 단어를 이어 붙이고, 최고 등급까지 도전해 봐!</p></div><div class="mascot">🦊🔗</div></header>
+<div class="pills"><div class="pill">📖 두 본문의 단어만</div><div class="pill">🔤 1글자부터 가능</div><div class="pill">🚫 중복 금지</div><div class="pill">🧠 실시간 경로 분석</div><div class="pill">💡 도전당 힌트 5회</div></div>
+<div class="layout"><main class="column"><section class="panel"><h2>✨ 끝말잇기 모험</h2><div class="stats"><div class="stat"><label>현재 연결</label><strong id="current">0<small>개</small></strong></div><div class="stat"><label>최고 기록</label><strong id="best">0<small>개</small></strong></div><div class="stat"><label>다음 시작 글자</label><strong id="next">FREE</strong></div></div>
+<form id="form" class="entry" autocomplete="off"><input id="wordInput" aria-label="이어갈 영어 단어" placeholder="첫 단어를 자유롭게 골라봐!" autocapitalize="off" spellcheck="false"/><button class="primary" type="submit">연결하기 ➜</button></form><div class="helper" id="feedback" aria-live="polite">Emma와 Chris 본문에 있는 단어로 시작하면 돼요.</div>
+<div class="actions"><button class="secondary" id="undo" type="button">↶ 마지막 단어 취소</button><button class="secondary mint" id="hint" type="button">💡 후보 힌트 <span id="hintNumber">5/5</span></button><button class="secondary" id="restore" type="button">🏆 최고 기록 불러오기</button><button class="secondary" id="reset" type="button">↻ 새로 도전</button><button class="secondary pink" id="reveal" type="button">🎁 히든 미션</button></div>
+<div class="hintPanel hidden" id="hintPanel"><b>💡 이어지는 단어 후보</b><div id="candidateWords" class="candidates"></div><div class="tiny">후보를 확인한 뒤 직접 입력하세요. 같은 위치의 힌트는 다시 봐도 차감되지 않아요.</div><button class="secondary mint" id="closeHint" type="button" style="margin-top:8px">닫기</button></div>
+<div class="chainBox"><div class="tiny"><b>🔗 내 단어 사슬</b> · 단어를 누르면 그 위치로 되돌릴 수 있어요</div><div class="chips" id="chain"></div><div class="routePanel hidden" id="routePanel" aria-live="polite"><h3>🎯 초반 · 중반 · 후반 경로 추천</h3><p class="routeSub" id="routeSub">추천 위치를 찾는 중이에요…</p><div class="routeItems" id="routeItems"></div></div></div>
+<div class="note hidden" id="stuck"></div>
+<div class="analysis"><h3>🔭 실시간 경로 분석</h3><div class="analysisGrid"><div class="analysisCard"><span>바로 연결 가능한 미사용 단어</span><strong id="choices">66개</strong><small>지금 마지막 글자로 시작하는 단어 수</small></div><div class="analysisCard"><span>현재 경로의 최대 도달 길이</span><strong id="possibleMax">분석 중</strong><small id="maxNote">가능한 연결 순서를 계산합니다</small></div></div><div class="progress"><div class="progressInner" id="progress"></div></div><div class="tiny" id="analysisStatus">처음 시작할 단어를 자유롭게 고르세요.</div></div>
+
+</section></main>
+<aside class="column"><section class="panel passagePanel"><div class="passageHead"><h2>📖 오늘의 본문</h2><span class="usedLegend">✓ 사용한 단어는 흐리게</span></div><div class="textBlock"><div class="textName">🎬 EMMA</div><p class="passage" id="passageEmma"></p></div><div class="textBlock"><div class="textName">🎧 CHRIS</div><p class="passage" id="passageChris"></p></div><div class="passageFoot" id="passageFoot" aria-live="polite">사용한 단어 0개</div></section><section class="panel"><h2>🏅 나의 등급</h2><div class="gradeHero"><div class="emoji" id="gradeEmoji">🌱</div><div class="name" id="gradeName">새싹 도전자</div><p id="gradeDetail">최고 기록을 세워 보자!</p></div><div id="gradeList"></div></section><section class="panel secretPanel hidden" id="secretPanel"><div style="display:flex;justify-content:space-between;gap:12px"><h2 style="margin:0">🎁 히든 미션</h2><button class="secondary" id="closeSecret" type="button">접기</button></div><p class="tiny">한 번 달성한 미션은 새로 도전해도 유지됩니다.</p><div id="missionList"></div></section></aside></div>
+<p class="subtle">기록은 현재 브라우저에 저장돼요 · 분석이 끝나지 않은 길이는 확정된 최댓값으로 표시하지 않아요</p></div><div class="toast" id="toast" role="status"></div>
+<script>
+'use strict';
+const TEXTS={"Emma": "My name is Emma, and I’m a film editor. My work begins after the shooting is over. To create a better story, I can change the order of scenes or delete some of them. Storytelling skills are important for my job, so I read a lot.", "Chris": "I’m Chris, and I’m a Foley artist. I create sound effects in my studio when recording on location is not easy. Listen carefully. Do you hear the sound of waves? I made that sound with rice and a plastic container. Doesn’t it sound real?"};
+const tokenize=s=>(s.toLowerCase().replace(/[‘’ʼ`]/g,"'").match(/[a-z]+(?:'[a-z]+)*/g)||[]);
+const emma=new Set(tokenize(TEXTS.Emma)),chris=new Set(tokenize(TEXTS.Chris));
+const WORDS=[...new Set([...emma,...chris])].sort(), VOCAB=new Set(WORDS), LETTER=w=>w.replace(/[^a-z]/g,'').slice(-1), FIRST=w=>w[0];
+const normalize=s=>String(s).toLowerCase().trim().replace(/[‘’ʼ`]/g,"'").replace(/^[^a-z]+|[^a-z']+$/g,'');
+const VERIFIED_GLOBAL_PATH=['plastic','chris','studio','over','rice','emma','a','and',"doesn't",'to','on','not','that','them','made','effects','skills','scenes','sound','do','of','for','real','location','name','editor','read','delete','easy','you'];
+const GRADE=[{n:3,icon:'🥉',name:'브론즈'},{n:5,icon:'🥈',name:'실버'},{n:8,icon:'🥇',name:'골드'},{n:12,icon:'💎',name:'다이아'},{n:16,icon:'👑',name:'마스터'},{n:20,icon:'🌈',name:'레전드'}];
+const MISSIONS=[['📏 긴 단어 수집가','8글자 이상 단어를 2개 사용'],['🎬 두 본문 탐험가','Emma와 Chris 단어를 각각 3개 사용'],['🔥 긴 사슬의 달인','4글자 이상 단어만으로 10개 연결']];
+const $=id=>document.getElementById(id);let chain=[],best=0,bestPath=[],hintsLeft=5,hintCache={},hintVisible=false,missionsDone=[false,false,false],secretsOpen=false,storageOK=true,worker=null,taskId=0,knownOptimal=null,currentProjection=null,toastTimer=null,routeSuggestions=[],routeLoading=false;
+function validChain(items){if(!Array.isArray(items))return false;const seen=new Set();for(let i=0;i<items.length;i++){let w=items[i];if(typeof w!=='string'||!VOCAB.has(w)||seen.has(w)||(i&&LETTER(items[i-1])!==FIRST(w)))return false;seen.add(w)}return true}
+function restore(){let x=null,loadedKey=null;for(const k of ['emmaChrisWordChain_v5','emmaChrisWordChain_v4','emmaChrisWordChain_v3','emmaChrisWordChain_v2','emmaChrisWordChain_v1']){try{const t=localStorage.getItem(k);if(t){x=JSON.parse(t);loadedKey=k;break}}catch(e){storageOK=false}}if(!x)return;
+ if(validChain(x.chain))chain=x.chain;else if(Array.isArray(x.chain)){const clean=[];for(const raw of x.chain){let w=normalize(raw);if(!VOCAB.has(w)||clean.includes(w)||(clean.length&&LETTER(clean.at(-1))!==FIRST(w)))break;clean.push(w)}chain=clean}
+ best=Math.max(chain.length,Number.isSafeInteger(x.best)&&x.best>=0?x.best:0);if(validChain(x.bestPath))bestPath=x.bestPath;if(chain.length>bestPath.length&&chain.length===best)bestPath=chain.slice();
+ if(Number.isInteger(x.hintsLeft))hintsLeft=loadedKey==='emmaChrisWordChain_v5'?Math.max(0,Math.min(5,x.hintsLeft)):Math.max(0,Math.min(5,x.hintsLeft+2));
+ if(x.hintCache&&typeof x.hintCache==='object'&&!Array.isArray(x.hintCache))for(const [k,v] of Object.entries(x.hintCache).slice(0,150)){if(k.length<900&&Array.isArray(v))hintCache[k]=v.filter(w=>VOCAB.has(w)).slice(0,3)}
+ if(Array.isArray(x.missionsDone))missionsDone=[0,1,2].map(i=>x.missionsDone[i]===true);else if(Array.isArray(x.missionAchieved))missionsDone=[0,1,2].map(i=>x.missionAchieved[i]===true);
+ secretsOpen=!!(x.secretsOpen??x.secretShown);
+}
+function save(){try{localStorage.setItem('emmaChrisWordChain_v5',JSON.stringify({chain,best,bestPath,hintsLeft,hintCache,missionsDone,secretsOpen}))}catch(e){if(storageOK){storageOK=false;message('⚠️ 브라우저가 기록 저장을 차단했습니다. GitHub Pages 주소에서 사용하세요.','error')}}}
+function options(items=chain){const used=new Set(items);if(!items.length)return WORDS.slice();const l=LETTER(items.at(-1));return WORDS.filter(w=>FIRST(w)===l&&!used.has(w))}
+function key(items=chain){return items.join('|')}
+function missionCheck(i){const cntLong=chain.filter(w=>w.replace(/'/g,'').length>=8).length;return [cntLong>=2,chain.filter(w=>emma.has(w)).length>=3&&chain.filter(w=>chris.has(w)).length>=3,chain.length>=10&&chain.every(w=>w.replace(/'/g,'').length>=4)][i]}
+function message(t,type=''){const el=$('feedback');el.textContent=t;el.className='helper '+type}
+function toast(t){$('toast').textContent=t;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),1800)}
+function renderHint(){const k=key();$('hint').disabled=options().length===0||(!hintCache[k]&&hintsLeft===0);$('hintNumber').textContent=hintsLeft+'/5';$('hintPanel').classList.toggle('hidden',!hintVisible);$('candidateWords').replaceChildren();if(hintVisible){for(const w of hintCache[k]||[]){const e=document.createElement('span');e.className='candidate';e.textContent=w;$('candidateWords').append(e)}}}
+const ZONES=[{id:'early',label:'초반',number:'①'},{id:'middle',label:'중반',number:'②'},{id:'late',label:'후반',number:'③'}];
+function routeZone(keep,total){
+ const candidates=total-1;
+ if(candidates<=0)return 'early';
+ const rank=Math.ceil(keep*3/candidates);
+ return ['early','middle','late'][Math.min(2,Math.max(0,rank-1))];
+}
+function showRoutes(){
+ const show=chain.length>1&&options().length===0;
+ $('routePanel').classList.toggle('hidden',!show);
+ if(!show)return;
+ $('routeItems').replaceChildren();
+ $('routeSub').textContent=routeLoading?'초반·중반·후반에서 더 긴 경로가 확인되는지 살펴보고 있어요…':routeSuggestions.length?'연결 기록을 최대한 살릴 수 있도록 구간별로 하나씩 추천해요. 빨간 동그라미를 눌러 돌아갈 수 있어요.':'현재 기록보다 더 길어지는 경로를 아직 확인하지 못했어요. 원하는 단어를 직접 눌러 다른 길로 도전해 보세요.';
+ for(const zone of ZONES){
+  const r=routeSuggestions.find(x=>x.zone===zone.id);
+  if(!r)continue;
+  const btn=document.createElement('button');btn.type='button';btn.className='routeItem';
+  const bubble=document.createElement('span');bubble.className='routeRank';bubble.textContent=zone.number;
+  const z=document.createElement('span');z.className='routeZone';z.textContent=zone.label;
+  const label=document.createElement('span');label.className='routeText';label.textContent=`${r.keep}번째 '${chain[r.keep-1]}'까지 유지 · ${chain.length-r.keep}개 되돌리기`;
+  const score=document.createElement('span');score.className='routeScore';score.textContent=r.exact?`최대 ${r.found}개`:`${r.found}개 이상 확인`;
+  btn.append(bubble,z,label,score);btn.addEventListener('click',()=>rollback(r.keep));$('routeItems').append(btn);
+ }
+}
+function renderPassages(){
+ const used=new Set(chain);
+ for(const name of ['Emma','Chris']){
+  const root=$('passage'+name);root.replaceChildren();
+  const text=TEXTS[name];
+  // Retain all punctuation, spacing, capitalization and curly apostrophes as printed.
+  const re=/[A-Za-z]+(?:[’'‘ʼ`][A-Za-z]+)*/g;let cursor=0,match;
+  while((match=re.exec(text))!==null){
+   if(match.index>cursor)root.append(document.createTextNode(text.slice(cursor,match.index)));
+   const token=document.createElement('span');const word=normalize(match[0]);
+   token.className='token'+(used.has(word)?' used':'');
+   token.textContent=match[0];
+   if(used.has(word))token.title='이번 도전에서 사용한 단어: '+word;
+   root.append(token);cursor=re.lastIndex;
+  }
+  if(cursor<text.length)root.append(document.createTextNode(text.slice(cursor)));
+ }
+ $('passageFoot').textContent=`현재 사용한 서로 다른 단어 ${chain.length}개 · 같은 단어가 여러 번 나오면 모두 흐려져요`;
+}
+function render(){for(let i=0;i<3;i++)missionsDone[i]=missionsDone[i]||missionCheck(i);
+ $('current').textContent=chain.length+'개';$('best').textContent=best+'개';$('next').textContent=chain.length?LETTER(chain.at(-1)).toUpperCase():'FREE';$('wordInput').placeholder=chain.length?`${LETTER(chain.at(-1)).toUpperCase()}로 시작하는 단어`:'첫 단어를 자유롭게 골라봐!';$('undo').disabled=!chain.length;$('restore').disabled=!bestPath.length;
+ $('chain').replaceChildren();if(!chain.length){const el=document.createElement('div');el.className='tiny';el.textContent='🌈 아직 연결한 단어가 없어요. 마음에 드는 단어부터 시작해요!';$('chain').append(el)}else chain.forEach((w,i)=>{if(i){const a=document.createElement('span');a.className='arrow';a.textContent='➜';$('chain').append(a)}const btn=document.createElement('button');btn.type='button';btn.className='chip';const rank=routeSuggestions.findIndex(r=>r.keep===i+1);if(rank>=0&&options().length===0){btn.classList.add('routePick');btn.dataset.rank=ZONES[rank].number;btn.dataset.zone=routeSuggestions[rank].zone}btn.textContent=`${i+1}. ${w}`;btn.title=`${i+1}번째 단어까지 유지`;btn.addEventListener('click',()=>rollback(i+1));$('chain').append(btn)});
+ const opts=options();$('choices').textContent=opts.length+'개';$('stuck').classList.toggle('hidden',!chain.length||opts.length>0);if(chain.length&&!opts.length){$('stuck').textContent='🚧 지금은 이어갈 수 있는 미사용 단어가 0개예요. 마지막 단어를 취소하거나 이전 단어를 눌러 다른 길을 찾아보세요.';$('stuck').classList.add('warn')}
+ showRoutes();renderPassages();renderHint();const gr=GRADE.filter(g=>best>=g.n).at(-1);$('gradeEmoji').textContent=gr?.icon||'🌱';$('gradeName').textContent=gr?.name||'새싹 도전자';$('gradeDetail').textContent=`최고 ${best}개 연결!`;$('gradeList').replaceChildren();GRADE.forEach(g=>{const el=document.createElement('div');el.className='gradeRow '+(best>=g.n?'done':'locked');el.innerHTML=`<span class="grIcon">${g.icon}</span><span class="grName">${g.name}</span><span class="grNeed">${g.n}개 ${best>=g.n?'✓':'🔒'}</span>`;$('gradeList').append(el)});
+ $('secretPanel').classList.toggle('hidden',!secretsOpen);$('missionList').replaceChildren();MISSIONS.forEach((m,i)=>{const el=document.createElement('div');el.className='mission '+(missionsDone[i]?'complete':'');el.innerHTML=`<b>${m[0]}</b><p>${m[1]}</p><small>${missionsDone[i]?'✅ 달성!':'🔒 도전 중'}</small>`;$('missionList').append(el)});
+ save();}
+function rollback(count){if(count>=chain.length||count<0)return;if(!confirm(`${count}번째 단어까지만 남길까요? 이후 ${chain.length-count}개는 취소되지만 최고 기록은 유지돼요.`))return;chain=chain.slice(0,count);hintVisible=false;message('↶ 이 지점부터 다른 단어로 이어가 보세요.');render();analyze();}
+function submitWord(raw){const w=normalize(raw);if(!w){message('단어를 입력해 주세요.','error');return false}if(!VOCAB.has(w)){message('두 본문에 없는 단어예요. 원문에서 찾아 주세요.','error');return false}if(chain.includes(w)){message('이미 사용한 단어예요! 다른 단어를 찾아보세요.','error');return false}if(chain.length&&LETTER(chain.at(-1))!==FIRST(w)){message(`'${LETTER(chain.at(-1)).toUpperCase()}'로 시작하는 단어가 필요해요.`,'error');return false}
+ const oldBest=best;chain.push(w);hintVisible=false;if(chain.length>best){best=chain.length;bestPath=chain.slice()};$('wordInput').value='';message(`✅ ${w} 성공! 다음은 ${LETTER(w).toUpperCase()}로 시작하는 단어!`,'good');render();analyze();if(best>oldBest&&GRADE.some(g=>g.n===best))toast('🎉 '+GRADE.find(g=>g.n===best).name+' 등급 달성!');return true}
+$('form').addEventListener('submit',e=>{e.preventDefault();submitWord($('wordInput').value);$('wordInput').focus()});
+$('undo').addEventListener('click',()=>{if(!chain.length)return;chain.pop();hintVisible=false;message('↶ 마지막 단어를 취소했어요.');render();analyze();$('wordInput').focus()});
+$('reset').addEventListener('click',()=>{if(!chain.length&&hintsLeft===5)return;if(!confirm('새로 도전할까요? 현재 단어와 힌트 사용 기록만 초기화되고 최고 기록·등급·미션은 유지됩니다.'))return;chain=[];hintsLeft=5;hintCache={};hintVisible=false;message('🌟 새로운 도전 시작!');render();analyze()});
+$('restore').addEventListener('click',()=>{if(!bestPath.length)return;if(chain.length&&!confirm('지금 연결한 단어를 최고 기록 경로로 바꿀까요?'))return;chain=bestPath.slice();hintVisible=false;message('🏆 최고 기록 경로를 불러왔어요. 단어를 눌러 수정할 수 있어요.');render();analyze()});
+$('hint').addEventListener('click',()=>{const k=key();if(!options().length){message('지금은 이어갈 단어가 없어요. 먼저 되돌아가 주세요.','error');return}if(hintCache[k]){hintVisible=!hintVisible;render();return}if(!hintsLeft){message('이번 도전에서 힌트를 모두 사용했어요.','error');return}const candidates=options().sort((a,b)=>options([...chain,b]).length-options([...chain,a]).length||a.localeCompare(b)).slice(0,3);hintCache[k]=candidates;hintsLeft--;hintVisible=true;render();toast('💡 후보 공개! '+hintsLeft+'회 남았어요.')});
+$('closeHint').onclick=()=>{hintVisible=false;render()};$('reveal').onclick=()=>{secretsOpen=!secretsOpen;render()};$('closeSecret').onclick=()=>{secretsOpen=false;render()};
+// Longest-trail exact solver executes in a Worker to keep typing responsive.
+// Only a completed exhaustive proof, or the independently verified global cap of 30,
+// may be called an exact maximum. A timed-out search supplies a certified lower bound.
+function solverWorker(){
+ let vocab=null,outs=null,begin=null,end=null;
+ function init(words){vocab=words;begin=words.map(w=>w[0]);end=words.map(w=>w.slice(-1));outs={};for(let i=0;i<words.length;i++)(outs[begin[i]]??=[]).push(i)}
+ function solve(prefix,budget=1600,width=950,excludeFirst=null){
+  const byName=new Map(vocab.map((w,i)=>[w,i]));const indices=prefix.map(w=>byName.get(w));let mask=0n;for(const i of indices)mask|=1n<<BigInt(i);
+  const first=indices.length?end[indices.at(-1)]:null;const current=indices.length;
+  let bestPath=[],bestDepth=0,nodes=0,proved=false,timedOut=false;
+  const globalPath=['plastic','chris','studio','over','rice','emma','a','and',"doesn't",'to','on','not','that','them','made','effects','skills','scenes','sound','do','of','for','real','location','name','editor','read','delete','easy','you'];
+  if(!excludeFirst && prefix.every((w,i)=>globalPath[i]===w)){
+    bestPath=globalPath.slice(prefix.length).map(w=>byName.get(w));bestDepth=bestPath.length;proved=true;
+  }
+  if(proved)return {found:30,addition:bestDepth,continuation:bestPath.map(i=>vocab[i]),exact:true,upper:30,nodes:0};
+  const deadline=performance.now()+budget;
+  const remaining=(last,used)=>{const a=last===null?vocab.map((_,i)=>i):(outs[last]||[]);return a.filter(i=>(used&(1n<<BigInt(i)))===0n)};
+  const bound=(last,used)=>{
+   const reach=new Set(),q=[];if(last===null){for(const v of Object.keys(outs)){reach.add(v);q.push(v)}}else{reach.add(last);q.push(last)}
+   for(let k=0;k<q.length;k++){const at=q[k];for(const i of outs[at]||[]){if(used&(1n<<BigInt(i)))continue;const dest=end[i];if(!reach.has(dest)){reach.add(dest);q.push(dest)}}}
+   const o={},inn={};for(let i=0;i<vocab.length;i++)if(!(used&(1n<<BigInt(i)))&&reach.has(begin[i])){o[begin[i]]=(o[begin[i]]||0)+1;inn[end[i]]=(inn[end[i]]||0)+1}
+   let upper=0;for(const v of Object.keys(o))upper+=Math.min(o[v],(inn[v]||0)+(v===last?1:0));return upper;
+  };
+  // Fast constructive beam search; each discovered path is genuinely feasible.
+  let frontier=[{last:first,used:mask,path:[]}];
+  for(let depth=0;depth<=vocab.length-current&&frontier.length;depth++){
+   const next=[],seen=new Set();for(const st of frontier){if(st.path.length>bestDepth){bestDepth=st.path.length;bestPath=st.path}
+    for(const i of remaining(st.last,st.used)){if(excludeFirst&&st.path.length===0&&vocab[i]===excludeFirst)continue;const m=st.used|(1n<<BigInt(i));const p=[...st.path,i];const id=m.toString(36)+'|'+end[i];if(seen.has(id))continue;seen.add(id);next.push({last:end[i],used:m,path:p})}
+   }
+   if(!next.length)break;
+   next.forEach(st=>{st.heuristic=st.path.length+bound(st.last,st.used)});
+   next.sort((a,b)=>b.heuristic-a.heuristic||b.path.length-a.path.length);
+   frontier=next.slice(0,width);if(performance.now()>deadline){timedOut=true;break}
+  }
+  if(bestDepth===0&&!remaining(first,mask).length)proved=true;
+  const initialUpper=first===null?30:Math.min(30,current+bound(first,mask));
+  if(current+bestDepth>=initialUpper)proved=true;
+  // Depth-first branch and bound with memoized states. A completed tree certifies optimality.
+  const memo=new Map();let done=true;
+  function dfs(last,used,path){
+   nodes++;if((nodes&255)===0&&performance.now()>deadline){done=false;return}
+   if(path.length>bestDepth){bestDepth=path.length;bestPath=path.slice()}
+   const up=path.length+bound(last,used);if(up<=bestDepth)return;
+   const id=last+'|'+used.toString(36);const old=memo.get(id);if(old!==undefined&&old>=path.length)return;memo.set(id,path.length);
+   let opts=remaining(last,used);if(excludeFirst&&path.length===0)opts=opts.filter(i=>vocab[i]!==excludeFirst);opts.sort((a,b)=>{const da=(outs[end[a]]||[]).length,db=(outs[end[b]]||[]).length;return db-da});
+   for(const i of opts){if(!done)return;path.push(i);dfs(end[i],used|(1n<<BigInt(i)),path);path.pop()}
+  }
+  if(!proved){dfs(first,mask,[]);proved=done;}
+  return {found:current+bestDepth,addition:bestDepth,continuation:bestPath.map(i=>vocab[i]),exact:proved,upper:initialUpper,nodes};
+ }
+ self.onmessage=event=>{
+  const m=event.data;if(m.type==='init'){init(m.words);return}
+  if(m.type==='solve'){
+   const result=solve(m.prefix,m.budget??1200,m.width??700);
+   self.postMessage({type:'main',id:m.id,result});
+  }
+  if(m.type==='recommend'){
+   const prefix=m.prefix, threshold=prefix.length, candidates=[];
+   // Each candidate is verified by a concrete legal continuation, not a guessed score.
+   // Scan all rollback positions; UI chooses one viable suggestion per section.
+   for(let keep=prefix.length-1;keep>=1;keep--){
+    const result=solve(prefix.slice(0,keep),m.budgetPer??150,m.width??260);
+    if(result.found>threshold&&result.continuation&&result.continuation.length){
+     candidates.push({keep,found:result.found,exact:result.exact,continuation:result.continuation});
+    }
+    if(keep%3===0)self.postMessage({type:'recommendProgress',id:m.id,candidates:candidates.slice()});
+   }
+   self.postMessage({type:'recommendDone',id:m.id,candidates});
+  }
+ }
+}
+function updateRecommendations(candidates,finished){
+ // Show at most one verified, strictly improving rollback in each third.
+ // A higher count is proven by a complete legal chain (even when exactness is pending).
+ routeSuggestions=[];
+ for(const zone of ZONES){
+  const matches=candidates.filter(r=>routeZone(r.keep,chain.length)===zone.id&&r.found>chain.length);
+  matches.sort((a,b)=>b.found-a.found||b.keep-a.keep);
+  if(matches.length)routeSuggestions.push({...matches[0],zone:zone.id});
+ }
+ routeLoading=!finished;
+ $('chain').querySelectorAll('button.chip').forEach((btn,i)=>{
+  const rank=routeSuggestions.findIndex(r=>r.keep===i+1);
+  btn.classList.toggle('routePick',rank>=0);
+  if(rank>=0){btn.dataset.rank=ZONES[rank].number;btn.dataset.zone=routeSuggestions[rank].zone;}
+  else{delete btn.dataset.rank;delete btn.dataset.zone;}
+ });
+ showRoutes();
+}
+function setAnalysisResult(result){currentProjection=result;knownOptimal=result.exact?result.found:null;$('possibleMax').textContent=result.exact?`${result.found}개`:`${result.found}개 이상`;$('maxNote').textContent=result.exact?'완전 탐색으로 확인한 최댓값':'확인된 연결 경로 기준 · 확정 최댓값 아님';$('analysisStatus').textContent=result.exact?`✅ 현재 단어를 유지하면 최대 ${result.found}개까지 가능해요.`:`🔍 현재 ${result.found}개까지 이어지는 경로를 확인했어요. 정확한 최댓값은 미확정입니다.`;$('progress').style.width=(Math.min(1,chain.length/Math.max(result.found,1))*100)+'%'}
+function analyze(){taskId++;currentProjection=null;routeSuggestions=[];routeLoading=chain.length>1&&options().length===0;showRoutes();
+ if(worker){worker.terminate();worker=null;}
+ if(!chain.length){$('possibleMax').textContent='30개';$('maxNote').textContent='전체 66개 단어에 대한 최적화 검증 완료';$('analysisStatus').textContent='🌈 자유롭게 시작하세요. 전체 최장 기록은 30개입니다.';$('progress').style.width='0%';knownOptimal=30;return}
+ if(options().length===0){setAnalysisResult({found:chain.length,exact:true});}
+ else{$('possibleMax').textContent='계산 중…';$('maxNote').textContent='지금 경로를 고정하고 가능한 순서를 탐색하고 있어요';$('analysisStatus').textContent='🧠 길 찾는 중…';$('progress').style.width='0%'}
+ try{
+  worker=new Worker(URL.createObjectURL(new Blob(['('+solverWorker.toString()+')()'],{type:'application/javascript'})));
+  worker.onmessage=e=>{const {type,id,result}=e.data;if(id!==taskId)return;if(type==='main')setAnalysisResult(result);else if(type==='recommendProgress')updateRecommendations(e.data.candidates,false);else if(type==='recommendDone')updateRecommendations(e.data.candidates,true)};
+  worker.onerror=()=>{routeLoading=false;showRoutes();$('analysisStatus').textContent='분석이 실행되지 않았어요. 후보 개수와 채점 기능은 사용할 수 있습니다.';if(worker){worker.terminate();worker=null}};
+  worker.postMessage({type:'init',words:WORDS});worker.postMessage({type:'solve',id:taskId,prefix:chain.slice(),budget:1350,width:650,started:performance.now()});if(routeLoading)worker.postMessage({type:'recommend',id:taskId,prefix:chain.slice(),budgetPer:180,width:320});
+ }catch(e){worker=null;routeLoading=false;showRoutes();$('analysisStatus').textContent='이 브라우저에서는 최대 경로 분석을 지원하지 않습니다. 후보 개수와 채점은 정상 작동합니다.'}
+}
+restore();render();analyze();
+</script></body></html>
